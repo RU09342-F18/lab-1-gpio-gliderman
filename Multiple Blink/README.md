@@ -8,4 +8,4 @@ A while loop is used to continuously change the states of the LEDs. The first st
 
 ## Devices
 
-Code was written to run on both an MSP430G2553 and an MSP430F5529. Both blink the LED on pin 1.0.
+Code was written to run on both an MSP430G2553 and an MSP430F5529.
