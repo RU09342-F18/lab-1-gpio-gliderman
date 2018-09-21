@@ -43,10 +43,7 @@
  *
  * --/COPYRIGHT--*/
 //******************************************************************************
-//  MSP430G2xx3 Demo - Software Toggle P1.0
-//
-//  Description; Toggle P1.0 by xor'ing P1.0 inside of a software loop.
-//  ACLK = n/a, MCLK = SMCLK = default DCO
+//  Description; Turn on the LED when the button is pressed
 //
 //                MSP430G2xx3
 //             -----------------
@@ -54,13 +51,15 @@
 //          | |                 |
 //          --|RST          XOUT|-
 //            |                 |
-//            |             P1.0|-->LED
+//   Button-->|P1.3         P1.0|-->LED
 //
 //  D. Dang
 //  Texas Instruments, Inc
 //  December 2010
 //   Built with CCS Version 4.2.0 and IAR Embedded Workbench Version: 5.10
 //******************************************************************************
+// Nate Hoffman
+// 9/21/2018
 
 #include <msp430.h>
 
@@ -72,8 +71,10 @@ int main(void)
 
   while (1) {
       if (P1IN & BIT3) {
+          // The button is not pressed, turn off the LED
           P1OUT &= ~BIT0;
       } else {
+          // The button is pressed, turn on the LED
           P1OUT |= BIT0;
       }
   }

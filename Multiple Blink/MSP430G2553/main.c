@@ -43,10 +43,7 @@
  *
  * --/COPYRIGHT--*/
 //******************************************************************************
-//  MSP430G2xx3 Demo - Software Toggle P1.0
-//
-//  Description; Toggle P1.0 by xor'ing P1.0 inside of a software loop.
-//  ACLK = n/a, MCLK = SMCLK = default DCO
+//  Description; Blink two LEDs at different rates.
 //
 //                MSP430G2xx3
 //             -----------------
@@ -55,12 +52,15 @@
 //          --|RST          XOUT|-
 //            |                 |
 //            |             P1.0|-->LED
+//            |             P1.6|-->LED
 //
 //  D. Dang
 //  Texas Instruments, Inc
 //  December 2010
 //   Built with CCS Version 4.2.0 and IAR Embedded Workbench Version: 5.10
 //******************************************************************************
+// Nate Hoffman
+// 9/21/2018
 
 #include <msp430.h>
 
@@ -77,7 +77,7 @@ int main(void)
   {
     P1OUT ^= BIT0;                          // XOR P1.0
     for (j=0;j<5;j++) {                     // Toggle the second led 5 times for each toggle of the first led
-        P1OUT ^= BIT6;                      // XOR P4.7
+        P1OUT ^= BIT6;                      // XOR P1.6
         for(i=10000;i>0;i--);               // Delay
     }
   }

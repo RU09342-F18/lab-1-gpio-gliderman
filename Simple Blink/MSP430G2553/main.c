@@ -43,8 +43,6 @@
  *
  * --/COPYRIGHT--*/
 //******************************************************************************
-//  MSP430G2xx3 Demo - Software Toggle P1.0
-//
 //  Description; Toggle P1.0 by xor'ing P1.0 inside of a software loop.
 //  ACLK = n/a, MCLK = SMCLK = default DCO
 //
@@ -61,22 +59,21 @@
 //  December 2010
 //   Built with CCS Version 4.2.0 and IAR Embedded Workbench Version: 5.10
 //******************************************************************************
+// Nate Hoffman
+// 9/21/2018
 
 #include <msp430.h>
 
 int main(void)
 {
+  volatile unsigned int i;
+
   WDTCTL = WDTPW + WDTHOLD;                 // Stop watchdog timer
-  P1DIR |= 0x01;                            // Set P1.0 to output direction
+  P1DIR |= BIT0;                            // Set P1.0 to output direction
 
-  for (;;)
+  while (1)
   {
-    volatile unsigned int i;
-
-    P1OUT ^= 0x01;                          // Toggle P1.0 using exclusive-OR
-
-    i = 5000;                              // Delay
-    do (i--);
-    while (i != 0);
+    P1OUT ^= BIT0;                          // Toggle P1.0 using exclusive-OR
+    for(i=5000;i>0;i--);                   // Delay
   }
 }

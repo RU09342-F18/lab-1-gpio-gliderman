@@ -43,10 +43,7 @@
  *
  * --/COPYRIGHT--*/
 //******************************************************************************
-//   MSP430F552x Demo - Software Toggle P1.0
-//
-//   Description: Toggle P1.0 by xor'ing P1.0 inside of a software loop.
-//   ACLK = 32.768kHz, MCLK = SMCLK = default DCO~1MHz
+//   Description: Blink two LEDs at different rates.
 //
 //                MSP430F552x
 //             -----------------
@@ -61,6 +58,9 @@
 //   April 2009
 //   Built with CCSv4 and IAR Embedded Workbench Version: 4.21
 //******************************************************************************
+// Nate Hoffman
+// 9/21/2018
+
 #include <msp430.h>
 
 int main(void)

@@ -43,8 +43,6 @@
  *
  * --/COPYRIGHT--*/
 //******************************************************************************
-//   MSP430F552x Demo - Software Toggle P1.0
-//
 //   Description: Toggle P1.0 by xor'ing P1.0 inside of a software loop.
 //   ACLK = 32.768kHz, MCLK = SMCLK = default DCO~1MHz
 //
@@ -54,13 +52,16 @@
 //          | |                 |
 //          --|RST              |
 //            |                 |
-//            |             P1.0|-->LED
+//   Button-->|P1.1             P4.7|-->LED
 //
 //   Bhargavi Nisarga
 //   Texas Instruments Inc.
 //   April 2009
 //   Built with CCSv4 and IAR Embedded Workbench Version: 4.21
 //******************************************************************************
+// Nate Hoffman
+// 9/21/2018
+
 #include <msp430.h>
 
 int main(void)
@@ -72,8 +73,10 @@ int main(void)
 
   while (1) {
         if (P1IN & BIT1) {
+            // The button is not pressed, turn off the LED
             P4OUT &= ~BIT7;
         } else {
+            // The button is pressed, turn on the LED
             P4OUT |= BIT7;
         }
     }
