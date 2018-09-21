@@ -10,7 +10,7 @@ A while loop is used to continuously change the states of the LEDs. The first st
 
 ## Demonstration
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/PQuKUKN"><a href="//imgur.com/PQuKUKN">Off Board Blink Demo</a></blockquote>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/PQuKUKN"><a href="//imgur.com/a/PQuKUKN">Off Board Blink Demo</a></blockquote>
 
 ## Devices
 
