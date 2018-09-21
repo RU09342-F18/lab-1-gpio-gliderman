@@ -1,18 +1,11 @@
-# Button Blink
-Now that you have looked at blinking the LED from some built in delay, but what if we wanted to control the state of the LED by a button? You may think "Why would I need a Microcontroller to perform the job of a switch?". And that is where you come in. The bare minimum for this part of the lab is to essentially replicate a switch with your development board.
+# Nate Hoffman's Button Blink
 
-# YOU NEED TO CREATE THE FOLLOWING FOLDERS
-* MSP430G2553
-* MSP(FILL IN THE PROCESSOR YOU ARE USING)
+Control of an LED state based on the state of a button.
 
-## README
-Remember to replace this README with your README once you are ready to submit. I would recommend either making a copy of this file or taking a screen shot. There might be a copy of all of these README's in a folder on the top level depending on the exercise. Make sure you talk about how your button is configured (momentary or continuous. Normally open or closed. Does the button press indicate when the LED should be on or off.)
+## Operation
 
-## Extra Work
-What can we do to make this a little bit more worthy of needing a microcontroller.
+A while loop is used to continuously poll the state of the button. An if statement performs this check by ANDing the input port with the button's pin to determine a 1 or 0 state. A 1 state means the button is not pressed (as there is a pull-up resistor), while a 0 state means the button is pressed. Based on which state, the LED is set to a 1 for pressed or 0 if not pressed.
 
-### Button Based Speed Control
-Much like the UART controlled speed, what if you could cycle between speeds based on a button press? The speed could progress through a cycle of "Off-Slow-Medium-Fast" looping back when you hit the end.
+## Devices
 
-### Color Change
-What if upon a button press, the LED which was blinking changed. Some of the development boards contain two LEDs, so you could swap between a Red and a Green LED.
+Code was written to run on both an MSP430G2553 and an MSP430F5529. Both blink the LED on pin 1.0.
